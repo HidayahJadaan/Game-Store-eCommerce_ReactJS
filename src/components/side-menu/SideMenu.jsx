@@ -4,11 +4,11 @@ import NavListItem from "../nav-list-item/NavListItem";
 import navListData from "../../data/navListData";
 import socialListData from "../../data/socialListData";
 
-export default function SideMenu() {
+export default function SideMenu({ active }) {
   const [navData, setNavData] = useState(navListData);
 
   return (
-    <div className="sideMenu">
+    <div className={`sideMenu ${active ? 'active': ""}`}>
       <a href="#" className="logo">
         <i className="bi bi-controller"></i>
         <span className="brand">Play</span>

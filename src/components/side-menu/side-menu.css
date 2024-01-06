@@ -57,9 +57,9 @@
 .social {
   position: absolute;
   bottom: 40px;
-  left: 10px;
+  left: 50px;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   align-items: center;
   list-style: none;
   gap: 10px;
@@ -73,22 +73,40 @@
   text-decoration: none;
   transition: 1s;
   text-align: center;
-  font-size: 1rem;
+  font-size: 1.5rem;
   background-color: var(--bgColor);
-
 }
 
 .sideMenu .social li a {
   color: white;
   width: 100%;
-
 }
-
+/* 
 .sideMenu .social li:hover {
   transform: translateX(100px);
   background-color: var(--secondary);
 
   box-shadow: -5px -5px 15px rgba(0, 0, 0, 0.1),
-  5px 5px 15px rgba(0, 0, 0, 0.35);
-  
+    5px 5px 15px rgba(0, 0, 0, 0.35);
+} */
+
+.sideMenu.active{
+  width: 7%;
+  overflow: hidden;
+  align-items: center;
+  transition: 1s;
+}
+.sideMenu.active .brand,
+.sideMenu.active .navName{
+  display: none;
+}
+.sideMenu.active .nav li a {
+  font-size: 1.8rem;
+}
+
+.sideMenu.active .social{
+  padding: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
