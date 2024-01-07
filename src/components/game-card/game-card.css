@@ -78,8 +78,8 @@
 .gameCard .prePrice{
     text-decoration: line-through;
     text-decoration-color: #ff0000;
-    text-decoration-thickness: 3px;
-    font-size: 0.8rem;
+    text-decoration-thickness: 2.5px;
+    font-size: 1.5rem;
 }
 
 .gameCard .currentPrice{
