@@ -110,3 +110,26 @@
   justify-content: center;
   align-items: center;
 }
+
+@media (max-width: 920px){
+  .sideMenu{
+    width: 7%;
+    overflow: hidden;
+    align-items: center;
+  }
+  .sideMenu .brand,
+  .sideMenu .navName{
+    display: none;
+  }
+  .sideMenu .nav li a {
+    font-size: 1.8rem;
+  }
+  
+  .sideMenu .social{
+    padding: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+}

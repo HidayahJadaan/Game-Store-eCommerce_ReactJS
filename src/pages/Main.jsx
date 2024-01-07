@@ -49,6 +49,7 @@ export default function Main() {
   ];
 
   const handleSectionActive = (target) => {
+    
     sections.map((section) => {
       // section.ref.current; --> The Entire Section (HTML ELEMENT)
       if (section.ref.current) {
@@ -62,6 +63,15 @@ export default function Main() {
     });
   };
 
+
+
+  const scrollToCategories = (e) => {
+    e.preventDefault();
+    handleSectionActive('categories'); // Assuming 'categories' is the id of the Categories section
+    categoryRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
+
+
   return (
     <main>
       <SideMenu sectionActive={handleSectionActive} active={active} />
@@ -72,7 +82,7 @@ export default function Main() {
           { games && games.length >0 && (
             
           <>
-            <Home games={games} reference={homeRef} />
+            <Home games={games} reference={homeRef} scrollToCategories={scrollToCategories} />
             <Categories games={games} reference={categoryRef} />
             <MyLibrary games={library} reference={libraryRef} />
             <MyBag games={bag} reference={bagRef} />

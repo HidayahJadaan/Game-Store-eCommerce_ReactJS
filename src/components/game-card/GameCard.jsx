@@ -14,6 +14,13 @@ export default function GameCard({ game }) {
     setLibrary(library.filter((item) => item._id !== game._id));
   };
 
+  // You Can not Add TO The Bag twics the same game, it is a game(digital product)
+  const handleAddToBag = (game) => {
+    if(bag.includes(game)) return
+    setBag([...bag, game]);
+  };
+
+
   return (
     <div className="col-xl-3 col-lg-4 col-md-6">
       <div className="gameCard">
@@ -53,7 +60,9 @@ export default function GameCard({ game }) {
           </span>
         </div>
 
-        <a href="#" className="addBag">
+        <a href="#" className="addBag"
+        onClick={()=> handleAddToBag(game)}
+        >
           <i className="bi bi-bag-plus-fill"></i>
         </a>
       </div>
