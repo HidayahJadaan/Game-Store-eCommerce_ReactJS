@@ -1,13 +1,32 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./game-card.css";
 import GameRating from "../game-rating/GameRating";
+import { AppContext } from "../../App";
 
 export default function GameCard({ game }) {
+  const { library, setLibrary, bag, setBag } = useContext(AppContext);
+
+  const handleAddToLibrary = (game) => {
+    setLibrary([...library, game]);
+  };
+
+  const handleRemoveFromLibrary = (game) => {
+    setLibrary(library.filter((item) => item._id !== game._id));
+  };
+
   return (
     <div className="col-xl-3 col-lg-4 col-md-6">
       <div className="gameCard">
         <img src={game.img} className="img-fluid" alt={game.title} />
-        <a href="#" className="like">
+        <a
+          href="#"
+          className={`like ${library.includes(game)? 'active': " "}`}
+          onClick={
+            library.includes(game)
+              ? () => handleRemoveFromLibrary(game)
+              : () => handleAddToLibrary(game)
+          }
+        >
           {" "}
           <i className="bi bi-heart-fill"></i>{" "}
         </a>

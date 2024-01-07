@@ -37,7 +37,7 @@
 }
 
 .gameCard .like.active {
-  color: var(--secondary);
+  color: #ff0000;
 }
 .gameCard .gameFeature {
   display: flex;

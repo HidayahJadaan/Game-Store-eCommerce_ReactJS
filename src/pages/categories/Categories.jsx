@@ -26,22 +26,22 @@ export default function Categories({ games, reference }) {
 
     setData(games.filter((game) => game.category === category));
   };
-
-  useEffect(() => {
-    setData(games);
-  }, [games]);
-
+  
   const [text, setText] = useState("");
-
+  
   const handleSearchGames = (e) => {
     // the remaing games will be appeared
     setData(
       games.filter((game) =>
-        game.title.toLowerCase().includes(e.target.value.toLowerCase())
+      game.title.toLowerCase().includes(e.target.value.toLowerCase())
       )
-    );
-    setText(e.target.value);
-  };
+      );
+      setText(e.target.value);
+    };
+    
+      // useEffect(() => {
+      //   setData(games);
+      // }, [games]);
 
   return (
     <section ref={reference} id="categories" className="categories">

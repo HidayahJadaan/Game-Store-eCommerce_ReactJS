@@ -1,8 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
-
+import React, { useEffect, useRef, useState, useContext } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
 import "./main.css";
 import SideMenu from "../components/side-menu/SideMenu";
 import Header from "./header/Header";
@@ -10,8 +8,13 @@ import Home from "./home/Home";
 import Categories from "../pages/categories/Categories";
 import MyLibrary from "../pages/library/MyLibarary";
 import MyBag from "../pages/my-bag/MyBag";
+import { AppContext } from "../App";
+
 
 export default function Main() {
+
+  const {library, bag} = useContext(AppContext);
+
   const [active, setActive] = useState(false);
   const [games, setGames] = useState([]);
 
@@ -65,10 +68,17 @@ export default function Main() {
       <div className={`banner ${active ? "active" : ""}`}>
         <Header toggleActive={handleToggleActive} />
         <div className="container-fliud">
-          <Home games={games} reference={homeRef} />
-          <Categories games={games} reference={categoryRef} />
-          <MyLibrary games={games} reference={libraryRef} />
-          <MyBag games={games} reference={bagRef} />
+
+          { games && games.length >0 && (
+            
+          <>
+            <Home games={games} reference={homeRef} />
+            <Categories games={games} reference={categoryRef} />
+            <MyLibrary games={library} reference={libraryRef} />
+            <MyBag games={bag} reference={bagRef} />
+          </>
+          )}
+         
         </div>
       </div>
     </main>
