@@ -47,6 +47,7 @@ section{
   transition: ease-in-out 1s;
   transform-origin: bottom;
   z-index: 1000;
+  color: #fff;
 }
 
 section::-webkit-scrollbar{

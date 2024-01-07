@@ -3,9 +3,9 @@ import "./home.css";
 import GameSwiper from "../../components/Game-Swiper/GameSwiper";
 import GameCard from "../../components/game-card/GameCard";
 
-export default function Home({ games }) {
+export default function Home({ games , reference}) {
   return (
-    <section id="home" className="home active">
+    <section id="home" className="home active" ref={reference}>
       {/* Carousil */}
 
       <div className="container-fluid">
