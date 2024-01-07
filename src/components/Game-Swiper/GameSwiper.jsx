@@ -3,21 +3,20 @@ import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
-import 'swiper/css/effect-coverflow'
-import 'swiper/css/navigation'
+import "swiper/css/effect-coverflow";
+import "swiper/css/navigation";
 
 import "./game-swiper.css";
 // Required Modules
 import { Navigation, Autoplay, EffectCoverflow } from "swiper/modules";
+import GameSlide from "../game-slide/GameSlide";
 
-export default function GameSwiper({ games }){
+export default function GameSwiper({ games }) {
+  const [active, setActive] = useState(false);
 
-const [active, setActive] = useState(false);
-
-const handleToggleVideo = ()=>{
-  setActive(!active);
-
-}
+  const handleToggleVideo = () => {
+    setActive(!active);
+  };
   return (
     <Swiper
       effect={"coverflow"}
@@ -40,41 +39,18 @@ const handleToggleVideo = ()=>{
       modules={[EffectCoverflow, Navigation, Autoplay]}
       className="gameSwiper"
     >
-      {games.map((game) => {
-        return (
+      {games.map((game) => (
+     
           <SwiperSlide key={game._id}>
-            <div className="gameSlider">
-              <img src={game.img} alt="Image" />
-
-              <div className="content">
-                <h2>{game.title}</h2>
-                <p>{game.description}</p>
-                <div className="buttons">
-                  <a href="#" className="orderBtn">
-                    Order Now
-                  </a>
-
-                  <a href="#" 
-                  
-                  className={`playBtn ${active ? 'active': ""}`} 
-                  onClick={handleToggleVideo}
-                  >
-
-                    <span className="pause">
-                      <i className="bi bi-pause-fill"></i>
-                    </span>
-
-                    <span className="play">
-                      <i className="bi bi-play-fill"></i>
-                    </span>
-
-                  </a>
-                </div>
-              </div>
-            </div>
+          <GameSlide 
+          game={game}
+          active={active}
+          toggleVideo={handleToggleVideo}
+          
+          />
           </SwiperSlide>
-        );
-      })}
+        
+      ))}
     </Swiper>
   );
 }

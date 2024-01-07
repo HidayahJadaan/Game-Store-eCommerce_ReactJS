@@ -59,6 +59,7 @@
     position: absolute;
     z-index: 1000;
     width: 60%;
+    margin-top: 2rem;
 }
 
 .gameSlider .content h2{
@@ -72,6 +73,7 @@
 }
 .gameSlider .content .buttons {
     display: flex;
+    margin-top: 2.4rem;
 }
 .gameSlider .content .buttons a{
     text-decoration: none;
@@ -111,4 +113,28 @@
 
 .swiper-slide.swiper-slide-active .playBtn.active .pause{
     display: block;
+}
+.swiper-slide .video iframe{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 85%;
+    height: 65%;
+    border-radius:  0 30px 0 30px !important;
+    border: 5px solid transparent;
+    background-color: var(--secondary);
+    box-shadow: -5px -5px 15px rgba(255,255,255,0.1),
+    5px 5px 15px rgba(0, 0, 0, 0.35);
+    z-index: 1100;
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0);
+    transition: 0.5s;
+    transform-origin: top right;
+}
+
+.swiper-slide.swiper-slide-active .video.active iframe{
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
 }

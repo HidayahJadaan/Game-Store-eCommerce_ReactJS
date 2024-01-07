@@ -17,7 +17,7 @@ const fetchData =()=>{
   .then(res=> res.json())
   .then(data=>{
     setGames(data);
-    console.log(data);
+    // console.log(data);
   })
   .catch(error=> toast.error('Something Went Wrong!!'));
 }

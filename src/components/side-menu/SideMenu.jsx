@@ -20,8 +20,8 @@ export default function SideMenu({ active }) {
       </ul>
 
       <ul className="social">
-        {socialListData.map((item) => (
-          <NavListItem key={item._id} item={item} />
+        {socialListData.map((item, index) => (
+          <NavListItem key={index} item={item} />
         ))}
       </ul>
     </div>
